@@ -1,0 +1,62 @@
+<ion-side-menus enable-menu-with-back-views="false" >
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button id="leftMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+
+
+  </ion-side-menu-content>
+
+
+
+  <ion-side-menu side="left" class="loginBg">
+    <ion-header-bar class="bar-stable bar-positive">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content class="side-menu-gradient">
+
+      <div class="profile-image">
+        <img ng-src="http://192.168.111.172:9000/{{user.imagePath}}" width="40%" height="100" style="display: block; margin-left: auto; margin-right: auto;" class="img">
+      </div>
+      <h3 id="menu-heading1" style="color:#fc0007;font-weight:300;text-align:center;">{{user.first_name}}  {{user.last_name}}</h3>
+
+      <div style="font-weight:300;text-align:center;">
+      <strong>succèss</strong> <span class="badge badge-balanced">{{user.job_completed}}</span>
+
+
+      <strong>error</strong> <span class="badge badge-assertive">{{user.job_failed}}</span>
+      </div>
+
+      <h5 id="menu-heading2" style="color:#020b02;font-weight:300;text-align:center;">Membre jusqu'au 16 Décembre 2017 </h5>
+
+      <ion-list id="menuLinks">
+        <ion-item menu-close ui-sref="menu.batchs" active-page-highlight><i class="icon ion-android-clipboard larger"></i>  All Batchs  </ion-item>
+        <ion-item menu-close ui-sref="menu.mybatchs" active-page-highlight><i class="icon ion-heart larger"></i>  My Batchs  </ion-item>
+        <ion-item menu-close ui-sref="menu.profile" active-page-highlight><i class="icon ion-android-contact larger"></i>  My Profile </ion-item>
+        <ion-item menu-close ui-sref="menu.info" active-page-highlight> <i class="icon ion-information larger"></i>   About us </ion-item>
+        <ion-item menu-close  active-page-highlight ng-click="logout1()"> <i class="icon ion-log-out larger"></i>  Déconnexion </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

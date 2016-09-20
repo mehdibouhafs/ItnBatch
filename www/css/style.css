@@ -1,0 +1,67 @@
+/* Empty. Add your own CSS if you like */
+.header .col {
+  background-color: #e9f0fd;
+}
+
+.col {
+  border: solid 1px #387ef5;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px #387ef5;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px #387ef5;
+}
+
+
+.larger {
+  font-size: 30px;
+}
+
+.positiv{
+  background-color: #e9f0fd;
+}
+
+.profile-image .img{
+  border-radius : 80px;
+  margin : 10px;
+  border : 3px solid #387ef5;
+}
+
+
+.side-menu-item{
+  background :none;
+  color:white;
+  font-weight:300;
+  border:0px;
+}
+
+.side-menu-item .item-content{
+  background :none;
+}
+
+.side-menu-item .item-content.activated{
+   background :blue;
+
+}
+
+.side-menu-item .item-content .activated .active-page-highlight .item-content{
+  background: blue;
+}
+
+
+.active-page-highlight{
+  background-color: #0c60ee;
+  color: blue;
+}
+
+
+
+
+
+
+

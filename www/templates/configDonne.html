@@ -1,0 +1,29 @@
+<ion-view title="Paramètrage des données du batch {{nameBatch}}">
+
+    <ion-content>
+
+      <div class="card list">
+
+        <div class="item item-text-wrap ">
+          <label class="item-floating-label"> <i class="icon ion-android-hand larger"></i><strong> Voici le tableau des données!</strong><i class="icon ion-android-hand larger"></i></label>
+
+          <label class="item-floating-label"><strong> Vous trouverez ici les données et leurs types !</strong></label>
+
+          <div class="row header">
+            <div class="col">Colonne </div>
+            <div class="col">Type</div>
+
+          </div>
+          <div class="row" ng-repeat="data in informationBatch.attributes">
+            <div class="col"><strong>{{data.nameo}}</strong></div>
+            <div class="col"><strong>{{data.type}}</strong></div>
+          </div>
+        </div>
+        </div>
+
+
+
+
+    </ion-content>
+
+  </ion-view>

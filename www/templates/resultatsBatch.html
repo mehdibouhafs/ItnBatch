@@ -1,0 +1,26 @@
+<ion-view title="Resultat du Batch : {{nameBatch}}">
+
+  <ion-content>
+
+    <div class="card list">
+        <div class="item item-text-wrap item-thumbnail-left"  ng-repeat="data in informationBatch.inputError" ng-show="data!=null">
+            <img src="img/failed.jpg">
+            <label class="item-floating-label" > Erreur dans la ligne numèro <i class="icon ion-arrow-right-a "></i> <strong>{{data.lineNumber}} </strong></label>
+            <label class="item-floating-label ">  Line <i class="icon ion-arrow-right-a "> </i> <strong> {{data.line}}</strong></label>
+            <label class="item-floating-label ">  Colonne <i class="icon ion-arrow-right-a "> </i><strong> {{data.columne}}</strong></label>
+            <label class="item-floating-label ">  Cause <i class="icon ion-arrow-right-a "> </i><strong> {{data.cause}}</strong></label>
+          <div class="spacer" style="width: 268px; height: 20px;"></div>
+        </div>
+
+      <div class="item item-text-wrap item-thumbnail-left"  ng-show="informationBatch.inputError.length==0">
+        <img src="img/done.jpg">
+        <label class="item-floating-label balanced"><strong> Félicitation !</strong></label>
+        <label class="item-floating-label positive"><strong> Toutes les lignes de votre fichier ont été ajouté avec succès !</strong></label>
+        <img src="img/done2.jpg" height="100px">
+      </div>
+    </div>
+
+
+  </ion-content>
+
+</ion-view>

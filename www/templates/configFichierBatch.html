@@ -1,0 +1,39 @@
+<ion-view title="Configuration fichier du Batch {{nameBatch}}">
+
+  <ion-content>
+    <div class="card list">
+
+      <div class="item item-text-wrap ">
+        <label class="item-floating-label"> <i class="icon ion-android-document larger"></i><strong> Configuration du fichier !</strong></label>
+        <div class="row">
+          <div class="col positiv">Date de Création </div>
+          <div class="col col col-75"><strong> {{informationBatch.reader.dateCreation | date:'yyyy/MM/dd HH:mm'}}</strong></div>
+        </div>
+        <div class="row">
+          <div class="col positiv">Créer par </div>
+          <div class="col col col-75"><strong> {{informationBatch.reader.executed_by}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col positiv">Chemin du fichier </div>
+          <div class="col col col-75"><strong> {{informationBatch.reader.filePath}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col positiv">Type du fichier </div>
+          <div class="col col col-75"><strong> {{informationBatch.batchStepExecution.step_name}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col positiv">Nombre de ligne Sauté </div>
+          <div class="col col col-75"><strong> {{informationBatch.reader.nbLineToSkip}}</strong></div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>
+
+
+

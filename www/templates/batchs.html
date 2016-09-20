@@ -1,0 +1,22 @@
+<ion-view view-title="Batchs" hide-back-button="true">
+
+  <ion-content>
+
+        <ion-list class="padding">
+
+          <ion-item ng-click="chargerInfoBatch(b.classeName)" class="item item-avatar item-icon-right" ng-repeat="b in batchs">
+            <img ng-src="img/{{mySplit(b.filePath,'.')}}.png">
+            <h2>{{b.classeName}} </h2>
+            <p> Fichier : {{ mySplit(b.filePath,null)}} </p>
+            <p> Date Création : {{b.dateCreation | date:'dd/MM/yyyy à HH:mm'}}</p>
+
+            <i class="icon ion-checkmark-circled balanced" ng-show="b.executed!=false"></i>
+          </ion-item>
+
+
+        </ion-list>
+
+      </ion-content>
+
+
+</ion-view>

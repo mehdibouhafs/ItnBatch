@@ -1,0 +1,27 @@
+<ion-view  title="login">
+<ion-content class="padding">
+  <div class="list list-inset profile-image">
+
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+    <img src="img/avatar.png" class="img" width="250px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+
+    <label style="margin-left: 182px;font-size: 35px;"> <b style="font-weight: 700;"> Admin </b> ITN</label>
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+    <label style="margin-left: 188px;font-size: 20px;"> Authentification </label>
+    <label class="item item-input">
+      <i class="icon ion-android-person"></i>
+      <input type="text" placeholder="Username" ng-model="data.username">
+    </label>
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+    <label class="item item-input">
+      <i class="icon ion-locked "></i>
+      <input type="password" placeholder="Password" ng-model="data.password">
+    </label>
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+  </div>
+  <button class="button button-block button-calm icon ion-key" ng-click="loginEmail()"> Login </button>
+
+  {{PostDataResponse}}
+</ion-content>
+</ion-view>
