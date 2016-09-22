@@ -1,37 +1,33 @@
-<ion-view title="Société">
+<ion-view title="About us" align-title="center">
   <ion-content padding="true" class="has-header">
     <form>
       <ion-list>
-
         <div class="spacer" style="width: 268px; height: 20px;"></div>
-        <img src="{{company.logo}}" class="img" width="250px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+        <img src="{{company.logo}}" class="img center" width="250px" height="100">
         <div class="spacer" style="width: 268px; height: 20px;"></div>
-
-        <label style="margin-left: 182px;font-size: 35px;"> <b style="font-weight: 700;"> About us </b> </label>
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
-
-
 
         <label class="item item-input">
-          <span class="input-label icon ion-android-person">   <strong>  Entreprise</strong>  :</span>
+          <span class="input-label icon ion-ios-briefcase">   <strong>  Entreprise</strong>  :</span>
           {{company.name}}
         </label>
+
+
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
         <label class="item item-input">
-          <span class="input-label icon ion-android-person">  <strong> Site</strong>  :</span>
+          <span class="input-label icon ion-ios-world">  <strong> Site</strong>  :</span>
           {{company.site}}
         </label>
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
         <label class="item item-input">
-          <span class="input-label icon ion-ios-email">   <strong>   Tel</strong>  :</span>
+          <span class="input-label icon ion-ios-telephone">   <strong>   Tel</strong>  :</span>
           {{company.tel}}
         </label>
 
         <div class="spacer" style="width: 268px; height: 20px;"></div>
         <label class="item item-input">
-          <span class="input-label icon ion-ios-email">   <strong>   Adresse</strong>  :</span>
+          <span class="input-label icon ion-ios-location">   <strong>   Adresse</strong>  :</span>
           {{company.adresse}}
         </label>
 

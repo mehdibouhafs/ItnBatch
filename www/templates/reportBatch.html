@@ -1,4 +1,4 @@
-<ion-view title="Rapport du Batch {{nameBatch}}">
+<ion-view title="Rapport du Batch {{nameBatch}}" align-title="center">
 
   <ion-content>
     <div class="card list" ng-show="informationBatch.reader.executed==true">
@@ -8,36 +8,60 @@
 
         <div class="row">
           <div class="col positiv"><strong>Date de lancement</strong> </div>
-          <div class="col col col-75 positive"><strong> {{informationBatch.batchStepExecution.start_time | date:'dd/MM/yyyy HH:mm'}}</strong></div>
         </div>
+
+        <div class="row">
+          <div class="col  positive"><strong> {{informationBatch.batchStepExecution.start_time | date:'dd/MM/yyyy HH:mm'}}</strong></div>
+          </div>
+
         <div class="row">
           <div class="col positiv"><strong>Par</strong> </div>
-          <div class="col col col-75 positive"><strong> {{informationBatch.reader.executed_by}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col  positive"><strong> {{informationBatch.reader.executed_by}}</strong></div>
         </div>
 
         <div class="row">
           <div class="col positiv"><strong>Date de fin</strong> </div>
-          <div class="col col col-75 positive"><strong> {{informationBatch.batchStepExecution.end_time | date:'dd/MM/yyyy HH:mm'}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col  positive"><strong> {{informationBatch.batchStepExecution.end_time | date:'dd/MM/yyyy HH:mm'}}</strong></div>
         </div>
 
         <div class="row">
           <div class="col positiv"><strong>Nombre de lignes Ajoutés</strong></div>
-          <div class="col col col-75 balanced"><strong> {{informationBatch.batchStepExecution.write_count}}</strong></div>
+
+        </div>
+
+        <div class="row">
+          <div class="col  balanced"><strong> {{informationBatch.batchStepExecution.write_count}}</strong></div>
         </div>
 
         <div class="row">
           <div class="col positiv"><strong>Nombre de lignes Non Ajoutés :</strong></div>
-          <div class="col col col-75 assertive"><strong> {{informationBatch.batchStepExecution.read_skip_count}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col assertive"><strong> {{informationBatch.batchStepExecution.read_skip_count}}</strong></div>
         </div>
 
         <div class="row">
           <div class="col positiv"><strong>Dernière Mise à jour</strong></div>
-          <div class="col col col-75 positive"><strong> {{informationBatch.batchStepExecution.last_updated | date:'dd/MM/yyyy HH:mm'}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col  positive"><strong> {{informationBatch.batchStepExecution.last_updated | date:'dd/MM/yyyy HH:mm'}}</strong></div>
         </div>
 
         <div class="row">
           <div class="col positiv"><strong>Statut</strong> </div>
-          <div class="col col col-75 balanced"><strong> {{informationBatch.batchStepExecution.status}}</strong></div>
+
+        </div>
+
+        <div class="row">
+          <div class="col  balanced"><strong> {{informationBatch.batchStepExecution.status}}</strong></div>
         </div>
 
 

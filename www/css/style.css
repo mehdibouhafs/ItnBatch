@@ -3,6 +3,21 @@
   background-color: #e9f0fd;
 }
 
+.scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.scroll {
+  display: table-cell;
+}
+
+.item-input .icon {
+  min-width: 14px;
+  margin-right: 20px;
+}
+
+
 .col {
   border: solid 1px #387ef5;
   border-bottom-style: none;

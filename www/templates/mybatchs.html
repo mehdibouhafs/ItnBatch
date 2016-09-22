@@ -3,15 +3,18 @@
   <ion-content>
 
 
+    <div class="item item-divider" ng-show="{{batch.completed!=null}}">
+       Batch lancé
+    </div>
 
     <ion-list class="padding">
 
-      <ion-item  ng-show="{{batch==null}}">
+      <ion-item  ng-show="{{batch.completed==null && batch.failed!=null }}">
 
-        <h2><i class="icon ion-alert-circled larger" ></i>     Vous n'avez aucun Batch pour le moment </h2>
+        <h2><i class="icon ion-alert-circled larger" ></i>     Vous n'avez aucun Batch lancé pour le moment </h2>
       </ion-item>
 
-      <ion-item ng-click="chargerInfoBatch(b.classeName)" class="item item-avatar item-icon-right" ng-repeat="b in batchs">
+      <ion-item ng-click="chargerInfoBatch(b.classeName)" class="item item-avatar item-icon-right" ng-repeat="b in batchs.completed">
         <img ng-src="img/{{mySplit(b.filePath,'.')}}.png">
         <h2>{{b.classeName}} </h2>
         <p> Fichier : {{ mySplit(b.filePath,null)}} </p>
@@ -21,6 +24,33 @@
       </ion-item>
 
     </ion-list>
+
+
+    <div class="item item-divider" ng-show="{{batch.failed!=null}}">
+      Batch non lancé
+    </div>
+
+
+    <ion-list class="padding">
+
+      <ion-item  ng-show="{{batch.failed==null}}">
+
+        <h2><i class="icon ion-alert-circled larger" ></i>     Vous n'avez crée aucun Batch  ! </h2>
+      </ion-item>
+
+      <ion-item ng-click="chargerInfoBatch(b.classeName)" class="item item-avatar item-icon-right" ng-repeat="b in batchs.failed">
+        <img ng-src="img/{{mySplit(b.filePath,'.')}}.png">
+        <h2>{{b.classeName}} </h2>
+        <p> Fichier : {{ mySplit(b.filePath,null)}} </p>
+        <p> Date Création : {{b.dateCreation | date:'dd/MM/yyyy à HH:mm'}}</p>
+
+        <i class="icon ion-checkmark-circled balanced" ng-show="b.executed!=false"></i>
+      </ion-item>
+
+    </ion-list>
+
+
+
 
   </ion-content>
 

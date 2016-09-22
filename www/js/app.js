@@ -1,5 +1,5 @@
 // Ionic Starter App
-var url = "http://192.168.111.172:9000/";
+var url = "http://localhost:9000/";
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -282,7 +282,7 @@ app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageServ
 
       $http.post(url+'login2', data, config)
         .success(function (data, status, headers, config) {
-          if(data != null){
+          if(data.email != null){
             StorageService.saveUser(data);
             var session = {"loggin_state":"true"};
             StorageService.setSession(session);
@@ -341,7 +341,7 @@ app.controller("batchsCtrl",function ($http,$scope,$state) {
 });
 
 
-app.controller("mybatchsCtrl",function ($http,$scope,$state) {
+app.controller("mybatchsCtrl",function ($http,$scope,$state,$ionicLoading) {
 
   $scope.mySplit = function(string,sep) {
 
@@ -362,13 +362,29 @@ app.controller("mybatchsCtrl",function ($http,$scope,$state) {
 
   $scope.batchs = [];
 
-  $http.get(url+"allMyJobs")
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
+
+
+  $http.get(url+"allMyJobCompleted")
     .success(function (data) {
       console.log("data"+data);
-      $scope.batchs = data;
+      $scope.batchs.completed = data;
     })
     .error(function (err) {
       console.log(err);
+    });
+
+  $http.get(url+"allMyJobFailed")
+    .success(function (data) {
+      console.log("data"+data);
+      $scope.batchs.failed = data;
+      $ionicLoading.hide();
+    })
+    .error(function (err) {
+      console.log(err);
+      $ionicLoading.hide();
     });
 
   $scope.chargerInfoBatch = function (nameBatch) {
@@ -434,70 +450,101 @@ app.controller("infoBatchCtrl",function ($scope,$state,$stateParams) {
 
 });
 
-app.controller("reportBatchCtrl",function ($http,$scope,$stateParams) {
+app.controller("reportBatchCtrl",function ($http,$scope,$stateParams,$ionicLoading) {
   $scope.nameBatch  = $stateParams.nameBatch;
   $scope.informationBatch = [];
+
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
 
   $http.get(url+"resume/"+$scope.nameBatch)
     .success(function (data) {
       $scope.informationBatch = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 });
 
 
-app.controller("resultatsBatchCtrl",function ($http,$scope,$stateParams) {
+app.controller("resultatsBatchCtrl",function ($http,$scope,$stateParams,$ionicLoading) {
   $scope.nameBatch  = $stateParams.nameBatch;
   $scope.informationBatch = [];
+
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
 
   $http.get(url+"resume/"+$scope.nameBatch)
     .success(function (data) {
       $scope.informationBatch = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 });
 
-app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams) {
+app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams,$ionicLoading) {
   $scope.nameBatch  = $stateParams.nameBatch;
   $scope.informationBatch = [];
+
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
 
   $http.get(url+"resume/"+$scope.nameBatch)
     .success(function (data) {
       $scope.informationBatch = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 });
 
-app.controller("configDonneBatchCtrl",function ($http,$scope,$stateParams) {
+app.controller("configDonneBatchCtrl",function ($http,$scope,$stateParams,$ionicLoading) {
   $scope.nameBatch  = $stateParams.nameBatch;
   $scope.informationBatch = [];
+
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
 
   $http.get(url+"resume/"+$scope.nameBatch)
     .success(function (data) {
 
       $scope.informationBatch = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 });
 
-app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams) {
+app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams,$ionicLoading) {
   $scope.nameBatch  = $stateParams.nameBatch;
   $scope.informationBatch = [];
+
+  $ionicLoading.show({
+    template : "Chargement en cours"
+  });
+
 
   $http.get(url+"resume/"+$scope.nameBatch)
     .success(function (data) {
       $scope.informationBatch = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 });
 

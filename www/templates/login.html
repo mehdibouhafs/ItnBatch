@@ -1,14 +1,27 @@
-<ion-view  title="login">
-<ion-content class="padding">
+<ion-view  title="login" align-title="center">
+<ion-content>
   <div class="list list-inset profile-image">
 
-    <div class="spacer" style="width: 268px; height: 20px;"></div>
-    <img src="img/avatar.png" class="img" width="250px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+    <img src="img/avatar.png" class="img" width="250px" height="100" style="display: block; margin-left: auto; margin-right:auto;">
     <div class="spacer" style="width: 268px; height: 20px;"></div>
 
-    <label style="margin-left: 182px;font-size: 35px;"> <b style="font-weight: 700;"> Admin </b> ITN</label>
+    <div  > </div>
+
+    <div class="row row-center">
+      <div class="col col-center" style=" border: solid 0px;text-align: center;">
+        <b style="font-weight: 700;font-size: 30px;"> Admin ITN </b>
+      </div>
+    </div>
     <div class="spacer" style="width: 268px; height: 20px;"></div>
-    <label style="margin-left: 188px;font-size: 20px;"> Authentification </label>
+
+    <div class="row row-center">
+      <div class="col col-center" style=" border: solid 0px;text-align: center;">
+        <h2 style="font-size: 20px;"> Authentification </h2>
+      </div>
+    </div>
+
+    <div class="spacer" style="width: 268px; height: 20px;"></div>
+
     <label class="item item-input">
       <i class="icon ion-android-person"></i>
       <input type="text" placeholder="Username" ng-model="data.username">
