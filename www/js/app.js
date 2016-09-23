@@ -1,5 +1,5 @@
 // Ionic Starter App
-var url = "http://localhost:9000/";
+var url = "http://192.168.111.172:9000/";
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -191,7 +191,7 @@ app.config(function($stateProvider,$urlRouterProvider){
     authStatus: true
   });
 
-  $urlRouterProvider.otherwise("welcome");
+  $urlRouterProvider.otherwise("menu.batchs");
 
 });
 

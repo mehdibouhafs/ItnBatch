@@ -4,19 +4,21 @@
       <ion-list class="profile-image">
 
         <div class="spacer" style="width: 268px; height: 20px;"></div>
-        <img ng-src="http://192.168.42.81:9000/{{profile.imagePath}}" class="img" width="150px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+        <img ng-src="http://192.168.111.172:9000/{{profile.imagePath}}" class="img" width="150px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
 
-        <div class="center">
+        <div class="row row-center">
+          <div class="col col-center" style=" border: solid 0px;text-align: center;">
           <strong>Batch with succèss</strong>  <span class="badge badge-balanced"> {{profile.job_completed}}</span>
 
          <strong>Batch with error</strong>   <span class="badge badge-assertive">{{profile.job_failed}}</span>
 
           <strong> Total </strong>  <span class="badge badge-positive">{{profile.total_jobs}}</span>
         </div>
+          </div>
 
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
