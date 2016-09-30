@@ -19,10 +19,22 @@
 
 
 .col {
-  border: solid 1px #387ef5;
+   border: solid 1px #387ef5;
+   border-bottom-style: none;
+   border-right-style: none;
+ }
+
+.cole {
+  border: solid 0px #387ef5;
   border-bottom-style: none;
   border-right-style: none;
+  flex: 1;
+  display: block;
+  padding: 5px;
+  display: block;
 }
+
+
 
 .col:last-child {
   border-right: solid 1px #387ef5;

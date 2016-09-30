@@ -1,41 +1,57 @@
-<ion-view title="About us" align-title="center">
+<ion-view title="Société">
   <ion-content padding="true" class="has-header">
     <form>
       <ion-list>
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
-        <img src="{{company.logo}}" class="img center" width="250px" height="100">
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
+        <div class="row">
+          <div class="cole" style="text-align: center;"><img src="{{company.logo}}" class="img" width="250px" height="100" ></div>
+        </div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-briefcase">   <strong>  Entreprise</strong>  :</span>
-          {{company.name}}
-        </label>
+        <div class="row">
+          <div class="cole" style="text-align: center;"><strong>  Entreprise</strong> </div>
+        </div>
 
 
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
+        <div class="row">
+          <div class="cole" style="text-align: center;"> {{company.name}} </div>
+        </div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-world">  <strong> Site</strong>  :</span>
-          {{company.site}}
-        </label>
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-telephone">   <strong>   Tel</strong>  :</span>
-          {{company.tel}}
-        </label>
+        <div class="row">
+          <div class="cole" style="text-align: center;"><strong> Site</strong> </div>
+        </div>
 
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-location">   <strong>   Adresse</strong>  :</span>
-          {{company.adresse}}
-        </label>
 
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-email">   <strong>   Email</strong>  :</span>
-          {{company.mail}}
-        </label>
+        <div class="row">
+          <div class="cole" style="text-align: center;"> {{company.site}} </div>
+        </div>
+
+
+        <div class="row">
+          <div class="cole" style="text-align: center;"><strong> Tel </strong></div>
+        </div>
+
+        <div class="row">
+          <div class="cole" style="text-align: center;">  {{company.tel}} </div>
+        </div>
+
+        <div class="row">
+          <div class="cole" style="text-align: center;"><strong> Adresse</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="cole" style="text-align: center;"> {{company.adresse}} </div>
+        </div>
+
+        <div class="row">
+          <div class="cole" style="text-align: center;"><strong> Email</strong> </div>
+        </div>
+
+        <div class="row">
+          <div class="cole" style="text-align: center;"> {{company.mail}} </div>
+        </div>
+
+
+
 
       </ion-list>
     </form>

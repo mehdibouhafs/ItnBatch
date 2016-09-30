@@ -191,7 +191,7 @@ app.config(function($stateProvider,$urlRouterProvider){
     authStatus: true
   });
 
-  $urlRouterProvider.otherwise("menu.batchs");
+  $urlRouterProvider.otherwise("welcome");
 
 });
 
@@ -219,6 +219,8 @@ app.factory("StorageService",function ($localStorage) {
 app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageService,$location) {
   $scope.data = {};
 
+
+
   $scope.showAlert = function(msg) {
     var alertPopup = $ionicPopup.alert({
       title: 'Warning Message',
@@ -232,13 +234,14 @@ app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageServ
 
     var config = {
       headers : {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
       }
     };
 
     $http.post(url+'registerMobile', data, config)
       .success(function (data, status, headers, config) {
-        console.log(data);
         if(data == "Password not the same") {
           $scope.showAlert(data);
         }else{
@@ -261,7 +264,6 @@ app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageServ
           "<hr />headers: " + header +
           "<hr />config: " + config;
 
-        console.log("err " + data);
       });
   };
 
@@ -276,7 +278,9 @@ app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageServ
 
       var config = {
         headers : {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
         }
       };
 
@@ -302,7 +306,7 @@ app.controller('loginCtrl', function($scope,$ionicPopup,$state,$http,StorageServ
 });
 
 
-app.controller("batchsCtrl",function ($http,$scope,$state) {
+app.controller("batchsCtrl",function ($http,$scope,$state,$ionicLoading) {
 
   $scope.mySplit = function(string,sep) {
 
@@ -321,12 +325,18 @@ app.controller("batchsCtrl",function ($http,$scope,$state) {
 
   $scope.batchs = [];
 
+  $ionicLoading.show({
+    template : "Chargement en cours..."
+  });
+
   $http.get(url+"readers")
     .success(function (data) {
       $scope.batchs = data;
+      $ionicLoading.hide();
     })
     .error(function (err) {
       console.log(err);
+      $ionicLoading.hide();
     });
 
   $scope.chargerInfoBatch = function (nameBatch) {
@@ -341,7 +351,7 @@ app.controller("batchsCtrl",function ($http,$scope,$state) {
 });
 
 
-app.controller("mybatchsCtrl",function ($http,$scope,$state,$ionicLoading) {
+app.controller("mybatchsCtrl",function ($http,$scope,$state,$ionicLoading,StorageService) {
 
   $scope.mySplit = function(string,sep) {
 
@@ -363,29 +373,40 @@ app.controller("mybatchsCtrl",function ($http,$scope,$state,$ionicLoading) {
   $scope.batchs = [];
 
   $ionicLoading.show({
-    template : "Chargement en cours"
+    template : "Chargement en cours..."
   });
 
 
-  $http.get(url+"allMyJobCompleted")
-    .success(function (data) {
-      console.log("data"+data);
+  var data = "name="+StorageService.getUser().email;
+  //var data1 = $httpParamSerializer(data);
+
+  var config = {
+    headers : {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+    }
+  };
+
+  $http.post(url+'allMyJobCompleted2', data, config)
+    .success(function (data, status, headers, config) {
       $scope.batchs.completed = data;
+      $ionicLoading.hide();
     })
-    .error(function (err) {
-      console.log(err);
+    .error(function (data, status, header, config) {
+      console.log(data);
     });
 
-  $http.get(url+"allMyJobFailed")
-    .success(function (data) {
-      console.log("data"+data);
+  $http.post(url+'allMyJobFailed2', data, config)
+    .success(function (data, status, headers, config) {
+      //$scope.batchs.completed = data;
       $scope.batchs.failed = data;
       $ionicLoading.hide();
     })
-    .error(function (err) {
-      console.log(err);
+    .error(function (data, status, header, config) {
       $ionicLoading.hide();
     });
+
 
   $scope.chargerInfoBatch = function (nameBatch) {
     $state.go("menu.infoBatch",{
@@ -475,7 +496,7 @@ app.controller("resultatsBatchCtrl",function ($http,$scope,$stateParams,$ionicLo
   $scope.informationBatch = [];
 
   $ionicLoading.show({
-    template : "Chargement en cours"
+    template : "Chargement en cours..."
   });
 
   $http.get(url+"resume/"+$scope.nameBatch)
@@ -494,7 +515,7 @@ app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams,$ion
   $scope.informationBatch = [];
 
   $ionicLoading.show({
-    template : "Chargement en cours"
+    template : "Chargement en cours..."
   });
 
   $http.get(url+"resume/"+$scope.nameBatch)
@@ -513,7 +534,7 @@ app.controller("configDonneBatchCtrl",function ($http,$scope,$stateParams,$ionic
   $scope.informationBatch = [];
 
   $ionicLoading.show({
-    template : "Chargement en cours"
+    template : "Chargement en cours..."
   });
 
   $http.get(url+"resume/"+$scope.nameBatch)
@@ -533,7 +554,7 @@ app.controller("configFichierBatchCtrl",function ($http,$scope,$stateParams,$ion
   $scope.informationBatch = [];
 
   $ionicLoading.show({
-    template : "Chargement en cours"
+    template : "Chargement en cours..."
   });
 
 

@@ -1,8 +1,11 @@
 <ion-view view-title="Batchs" hide-back-button="true" align-title="center">
 
-  <ion-content>
+  <ion-content scroll="true">
 
-        <ion-list class="padding">
+
+
+        <ion-list class="list">
+
 
           <ion-item ng-click="chargerInfoBatch(b.classeName)" class="item item-avatar item-icon-right" ng-repeat="b in batchs">
             <img ng-src="img/{{mySplit(b.filePath,'.')}}.png">
@@ -15,6 +18,7 @@
 
 
         </ion-list>
+
 
       </ion-content>
 

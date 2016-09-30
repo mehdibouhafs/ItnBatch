@@ -7,37 +7,46 @@
         <img ng-src="http://192.168.111.172:9000/{{profile.imagePath}}" class="img" width="150px" height="100" style="display: block; margin-left: auto; margin-right: auto;">
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
-
-
-        <div class="row row-center">
-          <div class="col col-center" style=" border: solid 0px;text-align: center;">
-          <strong>Batch with succèss</strong>  <span class="badge badge-balanced"> {{profile.job_completed}}</span>
-
-         <strong>Batch with error</strong>   <span class="badge badge-assertive">{{profile.job_failed}}</span>
-
+        <div class="row">
+          <div class="cole ">
+          <strong>Batch succèss</strong>  <span class="badge badge-balanced"> {{profile.job_completed}}</span>
+            </div>
+          <div class="cole ">
+         <strong>Batch error</strong>   <span class="badge badge-assertive">{{profile.job_failed}}</span>
+      </div>
+          <div class="cole ">
           <strong> Total </strong>  <span class="badge badge-positive">{{profile.total_jobs}}</span>
         </div>
           </div>
 
+        <div class="spacer" style="width: 268px; height: 10px;"></div>
+
+
+
+        <div class="row">
+          <div class="cole"> <strong>  Nom</strong></div>
+          <div class="cole">   {{profile.first_name}}</div>
+        </div>
+
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-android-person">   <strong>  Nom</strong>  :</span>
-          {{profile.first_name}}
-        </label>
+
+        <div class="row">
+          <div class="cole"> <strong>  Prénom</strong></div>
+          <div class="cole">   {{profile.last_name}}</div>
+        </div>
+
+
+
         <div class="spacer" style="width: 268px; height: 20px;"></div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-compose">  <strong> Prénom</strong>  :</span>
-          {{profile.last_name}}
-        </label>
-        <div class="spacer" style="width: 268px; height: 20px;"></div>
+        <div class="row">
+          <div class="cole"> <strong>  Email</strong></div>
+          <div class="cole">   {{profile.email}}</div>
+        </div>
 
-        <label class="item item-input">
-          <span class="input-label icon ion-ios-email">   <strong>   Email</strong>  :</span>
-          {{profile.email}}
-        </label>
+
+
 
       </ion-list>
     </form>
